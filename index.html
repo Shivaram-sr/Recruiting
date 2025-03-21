@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recruitify - Job Recruitment Platform</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h2>Recruitify</h2>
+            </div>
+            <ul>
+                <li><a href="#jobs">Job Listings</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <section class="hero">
+            <div class="hero-content" data-aos="fade-up">
+                <h1>Find Your Dream Job</h1>
+                <p>Your next career opportunity is waiting for you.</p>
+                <button class="cta-button">Browse Jobs</button>
+            </div>
+        </section>
+    </header>
+
+    <main>
+        <!-- Featured Jobs -->
+        <section class="job-listings" id="jobs">
+            <h2>Featured Job Listings</h2>
+            <div class="job-cards">
+                <div class="job-card" data-aos="fade-right">
+                    <h3>Software Engineer</h3>
+                    <p>Location: Remote</p>
+                    <button class="apply-button" onclick="showApplicationForm()">Apply Now</button>
+                </div>
+                <div class="job-card" data-aos="fade-left">
+                    <h3>Product Manager</h3>
+                    <p>Location: San Francisco</p>
+                    <button class="apply-button" onclick="showApplicationForm()">Apply Now</button>
+                </div>
+                <!-- More job cards -->
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about" class="about-us" data-aos="fade-up">
+            <h2>About Us</h2>
+            <p>At Recruitify, we connect top talent with the best companies. Our platform offers a seamless job application experience for both employers and job seekers.</p>
+            <h3>Our Team</h3>
+            <p>We are a passionate team committed to helping you find the perfect job or the best candidate for your company.</p>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-us">
+            <h2>Contact Us</h2>
+            <form id="contact-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+
+                <button type="submit" class="cta-button">Send Message</button>
+            </form>
+        </section>
+
+        <!-- Job Application Form (hidden by default) -->
+        <div id="application-form" class="application-form">
+            <div class="form-container">
+                <h3>Apply for Job</h3>
+                <form id="apply-form">
+                    <label for="app-name">Name:</label>
+                    <input type="text" id="app-name" name="app-name" required>
+
+                    <label for="app-email">Email:</label>
+                    <input type="email" id="app-email" name="app-email" required>
+
+                    <label for="app-resume">Upload Resume:</label>
+                    <input type="file" id="app-resume" name="app-resume" required>
+
+                    <button type="submit" class="cta-button">Submit Application</button>
+                    <button type="button" class="cta-button" onclick="closeApplicationForm()">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Recruitify | All rights reserved.</p>
+    </footer>
+
+    <script>
+        AOS.init();  // Initialize AOS library for scroll animations
+
+        // GSAP fade-in for hero section
+        gsap.from(".hero-content", {duration: 1, opacity: 0, y: -100});  
+
+        // Function to show the job application form
+        function showApplicationForm() {
+            document.getElementById('application-form').style.display = 'block';
+        }
+
+        // Function to hide the job application form
+        function closeApplicationForm() {
+            document.getElementById('application-form').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
